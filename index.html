@@ -10,11 +10,21 @@
     <section class="tarefas">
         <h1>Gerenciador de Tarefas</h1>               
         <form  id="form-tarefa"  >
-            <input type="text" id="titulo-tarefa" placeholder="Digite uma nova tarefa" required>
-            <input type="text" id="desc-tarefa"  placeholder="Digite a descrição" required></input>            
+            <label for="titulo-tarefa">Título</label> 
+            <input type="text" id="titulo-tarefa" placeholder="Digite uma nova tarefa" required><br>
+            <label for="desc-tarefa">Descrição</label>
+            <input type="text" id="desc-tarefa"  placeholder="Digite a descrição" required></input>  <br>          
             <button type="submit">Adicionar</button>
         </form>
         <h2>Tarefas</h2>
+        <div id="filtro-op">
+            <label for="filtro">Filtro:</label>
+            <select id="filtro">
+              <option value="todos">Todas</option>
+              <option value="completa">Completas</option>
+              <option value="incompleta">Incompletas</option>
+            </select>
+          </div>
         <ul id="lista-tarefas"> </ul> 
     </section>
     <script src="./assets/js/main.js"></script>
