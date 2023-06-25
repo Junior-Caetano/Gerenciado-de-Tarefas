@@ -1,0 +1,64 @@
+@import url(/assets/css/responsive.css);
+
+
+.tarefas{
+    background-color: rgb(172, 154, 154);
+    max-width: 80%;
+    height: 100%;
+    border: 3px solid black;
+    
+}
+
+h1{
+    text-align: center;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"] {
+    margin-right: 10px;
+    padding: 5px;
+  }
+  
+  form button {
+    padding: 5px 10px;
+  }
+  
+  #lista-tarefas {
+    list-style: none;
+    padding: 0;
+  }
+
+.btn-editar{
+    width: 25px;
+    height: 25px;
+    background-image: url(../icon/editar.png);
+    margin: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 25%;
+    
+  }
+
+.btn-excluir{
+    width: 25px;
+    height: 25px;
+    background-image: url(../icon/lixeira.png);
+    margin: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 25%;
+
+}
+
+  
