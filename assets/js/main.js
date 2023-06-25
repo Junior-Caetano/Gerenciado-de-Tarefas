@@ -1,5 +1,6 @@
 const formTarefa = document.getElementById("form-tarefa");
 const listaTarefas = document.getElementById("lista-tarefas");
+const filterSelect = document.getElementById("filtro");
 
 //Array para armazenar tarefas
 let tarefas = [];
@@ -13,6 +14,7 @@ function criarTarefa(titulo, descricao) {
     };
 
     tarefas.push(tarefa);
+    salvarTarefas()
     mostrarTarefas();
 
 }
@@ -22,9 +24,18 @@ function mostrarTarefas() {
     
     // Limpa a lista antes de renderizar novamente
     listaTarefas.innerHTML = "";
-  
+
+    const filtro = filterSelect.value;
+    let tarefasFiltradas = tarefas;
+    if (filtro === 'completa') {
+        tarefasFiltradas = tarefas.filter(tarefa => tarefa.completa);
+    } else if (filtro === 'incompleta') {
+        tarefasFiltradas = tarefas.filter(tarefa => !tarefa.completa);
+    }
+
+        
     // Renderiza cada tarefa na lista
-    tarefas.forEach((tarefa, index) => {
+    tarefasFiltradas.forEach((tarefa, index) => {
       const liTarefa = document.createElement("li");
       liTarefa.classList.add("tarefa");
   
@@ -45,7 +56,7 @@ function mostrarTarefas() {
       completarCheckbox.addEventListener("change", () => mudarStatus(index));
   
       const completeLabel = document.createElement("label");
-      completeLabel.innerText = "Completo";
+      completeLabel.innerText = "Completa";
   
       const editarButton = document.createElement("button");
       editarButton.classList.add("btn-editar");
@@ -76,7 +87,9 @@ function mostrarTarefas() {
 // Função para marcar/desmarcar uma tarefa como completa
 function mudarStatus(index) {
   tarefas[index].completa = !tarefas[index].completa;
+  salvarTarefas()
   mostrarTarefas();
+  
 }
 
 // Função para exibir o formulário de edição de tarefa
@@ -123,7 +136,7 @@ function mostrarEditarForm(index) {
 // Função para atualizar uma tarefa
 function updateTask(index, novoTitulo, novaDescricao) {
   tarefas[index].titulo = novoTitulo;
-  tarefas[index].description = novaDescricao;
+  tarefas[index].descricao = novaDescricao;
   mostrarTarefas();
 }
 
@@ -142,3 +155,26 @@ formTarefa.addEventListener("submit", (e) => {
     titleInput.value = "";
     descriptionInput.value = "";
 });
+
+// Event listener para o filtro de tarefas
+filterSelect.addEventListener('change', mostrarTarefas);
+
+// Função para salvar as tarefas no localStorage
+function salvarTarefas() {
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
+
+
+// Função para carregar as tarefas do localStorage
+function carregarTarefas() {
+    const tarefasSalvas = localStorage.getItem('tarefas');
+    if (tarefasSalvas) {
+      tarefas = JSON.parse(tarefasSalvas);
+    }
+  }
+
+  // Função para carregar as tarefas do localStorage quando a página é carregada
+window.addEventListener('DOMContentLoaded', () => {
+    carregarTarefas();
+    mostrarTarefas();
+  });
