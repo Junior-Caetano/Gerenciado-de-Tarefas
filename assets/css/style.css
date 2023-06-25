@@ -1,41 +1,40 @@
 @import url(/assets/css/responsive.css);
 
 
-.tarefas{
-    background-color: rgb(172, 154, 154);
-    max-width: 80%;
-    height: 100%;
-    border: 3px solid black;
-    
-}
-
-h1{
-    text-align: center;
-
-}
-
 body{
     display: flex;
     justify-content: center;
+    background-color: #ececec;
 }
 
-form {
-    margin-bottom: 20px;
-  }
-  
-  form input[type="text"] {
+section{
+    width: 60%;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+form{
+    border-bottom: 2px solid black;
+}
+
+
+
+h1, h2{
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+form input[type="text"] {
     margin-right: 10px;
     padding: 5px;
-  }
-  
-  form button {
-    padding: 5px 10px;
-  }
-  
-  #lista-tarefas {
+}
+
+
+#lista-tarefas {
     list-style: none;
     padding: 0;
-  }
+}
 
 .btn-editar{
     width: 25px;
@@ -47,7 +46,32 @@ form {
     background-position: center;
     border-radius: 25%;
     
-  }
+}
+
+ul{
+    margin-left: 5%;
+    align-content: center;
+    width: 100%;
+    display: flexbox;
+    justify-content: center;
+   
+}
+
+li{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 90%;
+    margin-bottom: 5px;
+
+}
+
+.titulo{
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
+    border-bottom: 2px solid black;
+
+}
 
 .btn-excluir{
     width: 25px;
