@@ -30,11 +30,10 @@ form {
 }
 
 .edit-form {
-    padding-top: 10px ;
-    background-color: white;
-    width: 100%;    
-    border-radius: 25px;
-    margin-bottom: 10px;         
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: -5%;          
 }
 
 .btn{
@@ -48,6 +47,14 @@ form {
     margin: 10px;
     margin-left: 35%;  
     min-width: 80px;  
+}
+
+.btn:hover{
+    transition : 500ms;
+    transform : translateY(-0px);
+    background-color: #7758de;
+    color: #000000;
+    border: solid 2px #000000;
 }
 
 h1{
