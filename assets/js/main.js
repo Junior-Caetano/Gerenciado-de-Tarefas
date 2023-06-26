@@ -115,6 +115,7 @@ function mostrarEditarForm(index) {
   descriptionInput.required = true;
 
   const updateButton = document.createElement("button");
+  updateButton.classList.add("btn");
   updateButton.innerText = "Atualizar";
   updateButton.addEventListener("click", (e) => {
     e.preventDefault();
