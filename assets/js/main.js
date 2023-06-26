@@ -114,11 +114,23 @@ function mostrarEditarForm(index) {
   descriptionInput.value = tarefa.descricao;
   descriptionInput.required = true;
 
+  const cancelarEdicao = document.createElement('button');
+  cancelarEdicao.classList.add("btn");
+  cancelarEdicao.innerText = 'Cancelar';
+  cancelarEdicao.addEventListener('click', () => mostrarTarefas());
+
   const updateButton = document.createElement("button");
   updateButton.classList.add("btn");
   updateButton.innerText = "Atualizar";
   updateButton.addEventListener("click", (e) => {
     e.preventDefault();
+    const novoTitulo = tituloInput.value.trim();
+    const novaDescricao = descriptionInput.value.trim();
+
+    if (novoTitulo === '' || novaDescricao === '') {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
     updateTask(index, tituloInput.value, descriptionInput.value);
   });
 
@@ -126,6 +138,7 @@ function mostrarEditarForm(index) {
   editarForm.appendChild(tituloInput);
   editarForm.appendChild(descriptionLabel);
   editarForm.appendChild(descriptionInput);
+  editarForm.appendChild(cancelarEdicao);
   editarForm.appendChild(updateButton);
 
   // Substitui o conteúdo atual da tarefa pelo formulário de edição
@@ -138,13 +151,18 @@ function mostrarEditarForm(index) {
 function updateTask(index, novoTitulo, novaDescricao) {
   tarefas[index].titulo = novoTitulo;
   tarefas[index].descricao = novaDescricao;
-  mostrarTarefas();
+    salvarTarefas();
+    mostrarTarefas();
 }
 
 // Função para excluir uma tarefa
 function deletarTarefa(index) {
+    const confirmarDelete = confirm("Tem certeza que deseja excluir esta tarefa?");
+  if (confirmarDelete) {
   tarefas.splice(index, 1);
-  mostrarTarefas();
+    salvarTarefas();
+    mostrarTarefas();
+  }
 }
 
 // Event listener para o formulário de adição de tarefas
