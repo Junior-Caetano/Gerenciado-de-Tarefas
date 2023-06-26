@@ -151,7 +151,7 @@ li{
     border-radius: 25%;
 }
 
-.filtro-op{
-    font-size: 22px;
-    margin-left: 10px;
+div label{
+    font-size: 16px;
+    margin-left: 10px;    
 }
