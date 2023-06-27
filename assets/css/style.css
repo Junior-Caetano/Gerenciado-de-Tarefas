@@ -126,10 +126,12 @@ li{
     border-bottom: 2px solid black;    
     color: white;
     padding-left: 5px;
+    word-wrap: break-word
 }
 
 .descricao{
     padding: 5px;
+    word-wrap: break-word
 }
 
 .actions{
